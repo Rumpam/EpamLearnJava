@@ -6,5 +6,6 @@ public class Main {
         float f = 1.0f;
         ++a;
         System.out.println(a);
+        System.out.println(d);
     }
 }
