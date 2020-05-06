@@ -8,5 +8,6 @@ public class Main {
         System.out.println(a);
         System.out.println(d);
         //change file in web. After false pull in PC
+        //after stash apply
     }
 }
