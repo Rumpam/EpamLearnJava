@@ -1,22 +1,33 @@
-import Array.Array;
-
 public class Main {
+    class Goblin {
+        public int money;
+    }
+
+    public void tryChangeParamentrValue(Goblin goblin, int[] arr1) {
+        goblin.money++;
+        arr1[0] = 200;
+        goblin = null;
+        arr1 = null;
+        goblin = new Goblin();
+
+        goblin.money = -400;
+        arr1 = new int[100];
+        arr1[2] = 3;
+    }
+
+    public void test1() {
+        Goblin goblin = new Goblin();
+        goblin.money = 45;
+        int[] arr1 = {};
+        tryChangeParamentrValue(goblin, arr1);
+        System.out.println(goblin.money);
+        System.out.println(arr1[0]);
+        System.out.println(arr1[2]);
+    }
+
 
     public static void main(String[] args) {
-        String hello = "Hello";
-        String world = "world";
-        System.out.println(hello + " " + world + "!");
-        Array.createArrayMethod();
-
-        //&& и ||
-        boolean a = true && false; //false
-        boolean a1 = false && true; //false
-        System.out.println(a);
-        System.out.println(a1);
-
-        boolean b = true || false; //true
-        boolean b1 = false || true; //true
-        System.out.println(b);
-        System.out.println(b1);
+        Main main = new Main();
+        main.test1();
     }
 }

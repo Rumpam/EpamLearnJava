@@ -1,21 +1,21 @@
 package Array;
 
+import java.util.Arrays;
+
 public class Array {
     public static void main(String[] args) {
-        //созд. и инициализация массива значениями
-        String[] array = {"one", "two"}; //быстрый способ #1
-        System.out.println(array[1]);
+        int[] arr = {1,2,4};
+        System.out.println(Arrays.toString(getEvenDigits(arr)));
+    }
 
-        int[] array1 = new int[1]; //длинный способ #2 (с размерностью)
-        array1[0] = 1;
-        System.out.println(array1[0]);
-
-        int[] array2; //длинный способ #3 (пустой массив без размерности
-        array2 = new int[]{}; //заполниться знач. по-умолчанию для типа - массив (null)
-
-        //единственный способ изменить размерность массива - переопределить ссылку на массив
-        int[] chaArr = new int[1];
-        chaArr = new int[2];
+    public static int[] getEvenDigits(int[] values) {
+        int[] newArr = new int[]{};
+        for (int i = 0; i < values.length; i++) {
+            if (values[i] % 2 == 0) {
+                newArr = new int[]{values[i]}; //как-то нужно записать все знач. в новый массив
+            }
+        }
+        return newArr;
     }
 
     public static int[] createArrayMethod() {

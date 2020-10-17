@@ -1,4 +1,4 @@
-package Instruction_operator;
+package Operators;
 
 public class Switch {
     static void valToSwitch(int value) {

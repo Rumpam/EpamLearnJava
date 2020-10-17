@@ -1,4 +1,4 @@
-package Instruction_operator;
+package Operators;
 
 public class DoWhile {
     public static void main(String[] args) {

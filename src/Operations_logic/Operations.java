@@ -1,4 +1,4 @@
-package Operations;
+package Operations_logic;
 
 public class Operations {
     public static void main(String[] args) {

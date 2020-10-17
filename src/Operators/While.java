@@ -1,5 +1,5 @@
 
-package Instruction_operator;
+package Operators;
 
 public class While {
     public static void main(String[] args) {
