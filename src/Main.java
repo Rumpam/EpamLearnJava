@@ -1,3 +1,6 @@
+import Pattern_Principal.Contact;
+import Pattern_Principal.ContactBuilder;
+
 public class Main {
     class Goblin {
         public int money;
@@ -29,5 +32,15 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.test1();
+
+        //создать ссылку на Contact
+        //справа создать инстанс ContactBuilder()
+        //после созд.инстанса можно вызывать его методы через точку, для мутирования полей
+        final Contact contact = new ContactBuilder()
+                .name("Ivan") //после смены поля, метод возвращает сам себя, что позволяет дальше менять поля через точку
+                .lastName("Ivanov")
+                .phoneNumber(111)
+                .build(); //в конце нужен Билд
+
     }
 }

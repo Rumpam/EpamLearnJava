@@ -7,7 +7,7 @@ public class Array_copy {
         //копирование массива
         int[] a = new int[]{1, 2, 3};
         int[] b = new int[]{4, 5, 6, 0, 0, 0};
-        System.arraycopy(a, 0, b, 3, a.length); //<из_массива_A> начиная с индекса 0, в <массив_Б>, длинну <массива_А>
+        System.arraycopy(a, 0, b, 3, a.length); //<из_массива_A> начиная с индекса 0, в <массив_Б> с индекса 3, длинну <массива_А>
         System.out.println(Arrays.toString(b));
 
         //клонирование массива
