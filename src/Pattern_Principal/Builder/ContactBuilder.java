@@ -1,16 +1,17 @@
-package Pattern_Principal;
+package Pattern_Principal.Builder;
 
 /* Для билдера нужны:
  -поля класса
- -Гетторы
+ -Геттеры
  -сам билдер
  -изменения в классе(моделька) от которого создается билдер.
- Конструктор модели не должен быть доступен никому, кроме самого билдера */
+
+ *Конструктор модели не должен быть доступен никому, кроме самого билдера */
+
 public class ContactBuilder {
     private String name;
     private String lastName;
     private int phoneNumber;
-
 
     /*
     * 1 создание метода, для мутирования поля класса - name (имя мутирующего метода должно совпадать с именем мутируемого поля)
@@ -43,7 +44,7 @@ public class ContactBuilder {
         return phoneNumber;
     }
 
-    /*сам билдер:
+    /* сам билдер:
     * -return'ит новый инстанс контакта
     * -в конструктор Contact он передает себя */
     public Contact build() {

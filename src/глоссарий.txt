@@ -1,0 +1,4 @@
+1 Создать ИНСТАНС класса
+Contact contact = new Contact();
+
+2 
