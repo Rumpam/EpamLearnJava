@@ -25,13 +25,14 @@ public class BoundedWildCard {
         }
         return false;
     }
-    /*
-    * */
 
-    public void main(String[] args) {
-        List<Camera> cameras = new Camera();
-        find(cameras, new Camera());
+    public static class Product {
+        String name;
+        int price;
+
+        Product(String name, int price) {
+            this.name = name;
+            this.price = price;
+        }
     }
-
-
 }
