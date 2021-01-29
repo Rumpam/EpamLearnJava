@@ -5,9 +5,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayCollection<T> implements Collection<T> {
-
     private T[] array = (T[]) new Object[1];
-
     private int size;
 
     @Override
@@ -31,28 +29,6 @@ public class ArrayCollection<T> implements Collection<T> {
     }
 
     @Override
-    public Iterator<T> iterator() {
-        return new ElementsIterator();
-    }
-
-    private class ElementsIterator implements Iterator<T> {
-        private int size;
-
-        @Override
-        public boolean hasNext() {
-            return ArrayCollection.this.size() > size;
-        }
-
-        @Override
-        public T next() {
-            if (!hasNext()) {
-                throw new NoSuchElementException();
-            }
-            return ArrayCollection.this.array[size++];
-        }
-    }
-
-    @Override
     public Object[] toArray() {
         final T[] newArray = (T[]) new Object[this.size()];
         System.arraycopy(array, 0, newArray, 0, this.size);
@@ -60,17 +36,15 @@ public class ArrayCollection<T> implements Collection<T> {
     }
 
     @Override
-    /*This method may prove to be too difficult.
-    he test is not covered.*/
     public <T1> T1[] toArray(T1[] a) {
         return (T1[]) toArray();
     }
 
     @Override
     public boolean add(final T t) {
-        if (array.length == size) { //если длинна созданного ранее массива, стала равной размеру(
-            final T[] oldArray = array; //сох.старый массив
-            array = (T[]) new Object[size() * 2]; //созд. нов.массив
+        if (array.length == size) {                //если длинна созданного ранее массива, стала равной размеру(
+            final T[] oldArray = array;            //сох.старый массив
+            array = (T[]) new Object[size() * 2];  //созд. нов.массив
             System.arraycopy(oldArray, 0, array, 0, oldArray.length);//скопировать данные из старого массива в новый
         }
         array[size++] = t; //записали в ячейку массива array[size++] элемент t(переданный параметром)
@@ -80,15 +54,20 @@ public class ArrayCollection<T> implements Collection<T> {
     @Override
     public boolean remove(final Object o) {
         for (int i = 0; i < size; i++) { //бежим по всем объектам до size
-            if (array[i].equals(o)) { //если объект массива на ячейке i равен объекту который передан в параметре
-                if (i != this.size() - 1 && i != size() - 1) { //и если итерация i не равна size() - 1
-                    System.arraycopy(array, i + 1, array, i, this.size() - i - 1);
-                }
-                size--;
+            if (array[i].equals(o)) {    //если объект массива на ячейке i равен объекту который передан в параметре
+                this.remove(i);
                 return true;
             }
         }
         return false;
+    }
+
+    private void remove(final int index) {
+        if (index != this.size() - 1)
+            System.arraycopy(array, index + 1, array, index, this.size() - index - 1);
+        if (this.size() != 0) {
+            size--;
+        }
     }
 
     @Override
@@ -132,5 +111,39 @@ public class ArrayCollection<T> implements Collection<T> {
     public void clear() {
         array = (T[]) new Object[1];
         size = 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ElementsIterator();
+    }
+
+    private class ElementsIterator implements Iterator<T> {
+        private int index;
+        private int last = -1;
+
+        @Override
+        public boolean hasNext() {
+            return ArrayCollection.this.size() > index;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            last = index;
+            return ArrayCollection.this.array[index++];
+        }
+
+        @Override
+        public void remove() throws IllegalStateException {
+            if (last == -1) {
+                throw new IllegalStateException();
+            }
+            ArrayCollection.this.remove(last);
+            index--;
+            last = -1;
+        }
     }
 }
