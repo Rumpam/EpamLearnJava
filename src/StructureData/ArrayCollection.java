@@ -1,5 +1,6 @@
 package StructureData;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -37,7 +38,11 @@ public class ArrayCollection<T> implements Collection<T> {
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
-        return (T1[]) toArray();
+        if (this.size() <= a.length) {
+            System.arraycopy(this.array, 0, a, 0, this.size());
+            return a;
+        }
+        return (T1[]) Arrays.copyOf(this.array, this.size(), a.getClass());
     }
 
     @Override
