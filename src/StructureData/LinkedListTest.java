@@ -684,7 +684,7 @@ public class LinkedListTest {
 
     @Test // Iterator
     public void testNextIndex() {
-        final LinkedList<String> testInstance = new LinkedList<String>() {
+        final LinkedList<String> testInstance = new LinkedList<>() {
             {
                 add("a");
                 add("b");
