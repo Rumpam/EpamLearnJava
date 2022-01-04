@@ -1,4 +1,4 @@
-package Pattern_Principal.Builder;
+package DesignPatterns.Builder;
 
 /* Для билдера нужны:
  -поля класса

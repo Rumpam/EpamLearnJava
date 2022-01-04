@@ -192,6 +192,7 @@ public class LinkedList<T> implements List<T> {
                     current.nextItem.prevItem = current.prevItem;
                 }
             }
+            size--;
         }
         // END
     }
@@ -305,6 +306,9 @@ public class LinkedList<T> implements List<T> {
     @Override
     public T get(final int index) {
         // BEGIN (write your solution here)
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException();
+        }
         return getItemByIndex(index).element;
         // END
     }

@@ -1,4 +1,4 @@
-package Base_concept_OOP.Class;
+package BaseConceptOop.Class;
 
 //информационный класс(класс объекта)
 public class Subject {
@@ -7,7 +7,10 @@ public class Subject {
     /* конструктор по-умолчанию
     - у любого класса есть конструктор по-умолчанию
     - если класс не public, то конструктор будет всегда публичным
-    - перед конструктом не могут быть ключевые поля (abstract/final/static), только public/private/protected */
+    - перед конструктом не могут быть ключевые поля (abstract/final/static), только public/private/protected
+
+    Преназначение конструктора - инициализация полей класса
+    */
     public Subject() {
         super();
     }

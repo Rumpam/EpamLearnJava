@@ -1,8 +1,5 @@
-import Pattern_Principal.Builder.Contact;
-import Pattern_Principal.Builder.ContactBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
+import DesignPatterns.Builder.Contact;
+import DesignPatterns.Builder.ContactBuilder;
 
 public class Main {
     public static void main(String[] args) {

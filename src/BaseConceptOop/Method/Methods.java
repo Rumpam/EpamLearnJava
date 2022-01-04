@@ -1,4 +1,4 @@
-package Base_concept_OOP.Method;
+package BaseConceptOop.Method;
 
 import java.util.Arrays;
 

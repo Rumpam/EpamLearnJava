@@ -1,4 +1,4 @@
-package Pattern_Principal.GetterSetter;
+package DesignPatterns.GetterSetter;
 
 public class Student {
     private String name;

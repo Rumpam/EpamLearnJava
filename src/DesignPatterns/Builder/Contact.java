@@ -1,4 +1,4 @@
-package Pattern_Principal.Builder;
+package DesignPatterns.Builder;
 
 public class Contact {
     private final String name;

@@ -1,4 +1,4 @@
-package Principal_OOP.Extends;
+package BaseConceptOop.Extends;
 
 public class Child extends Parent {
     String sex;
